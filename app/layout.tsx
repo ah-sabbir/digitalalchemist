@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from 'next/font/google'
 import "./globals.css";
-
 import { Providers } from "@/providers/nextuiProvider";
+import Navigation from "@/components/navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+import { Montserrat } from 'next/font/google'
+
+const fontWeights:any = ['400', '500', '600', '700', '800']
+
+const montserrat = Montserrat({
+  weight: ['400', '500', '600', '700', '800'] ,
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,10 +27,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-zinc-500`}>
-        <Providers>
+      <body className={`${montserrat.className } bg-zinc-50`}>
+        {/* <Providers> */}
+          <Navigation/>
           {children}
-        </Providers>
+        {/* </Providers> */}
         </body>
     </html>
   );
